@@ -10,25 +10,37 @@ $().ready(function() {
 
       if(selector == 'specify') {
         for(var property in css[selector]) {
-          console.debug(property);
+          // console.debug(property);
           if(property == '-spec-filter') {
-            var config = css[selector][property];
-            var parsed = /^['"]([^'"]+)['"][\s]+(.*)/.exec(config);
-            var select = parsed[1];
-            var handle = "return " + parsed[2];
+            (function() {
+              var config = css[selector][property];
+              var parsed = /^['"]([^'"]+)['"][\s]+(.*)/.exec(config);
+              var select = parsed[1];
+              var handle = parsed[2];
 
-            $.expr[':'][select] = function(context) { return Function(handle).call({ element: context }); };
+              if(handle == 'Specl.filter') {
+                $.expr[':'][select] = function(context) { return Specl.filter.call({ filter: select, element: context }); };
+              }
+              else {
+                $.expr[':'][select] = function(context) { return Function("return " + handle).call({ element: context }); };
+              }
+            })();
           }
           // else if(property == '-spec-property') {
           else if(/^-spec-property/.test(property)) {
-            var config = css[selector][property];
-            var parsed = /^['"]([^'"]+)['"][\s]+(.*)/.exec(config);
-            var prop   = parsed[1];
-            var lala   = parsed[2];
-            
-            console.debug('adding', lala);
+            (function() {
+              var config = css[selector][property];
+              var parsed = /^['"]([^'"]+)['"][\s]+(.*)/.exec(config);
+              var prop   = parsed[1];
+              var handle = parsed[2];
 
-            property_extensions[prop] = Function(lala);
+              if(handle == 'Specl.property') {
+                property_extensions[prop] = Specl.property;
+              }
+              else {
+                property_extensions[prop] = Function(handle);
+              }
+            })();
           }
         }
       }
@@ -52,8 +64,8 @@ $().ready(function() {
       }
     }
 
-    console.debug('applications', property_applications);
-    console.debug('extensions  ', property_extensions);
+    // console.debug('applications', property_applications);
+    // console.debug('extensions  ', property_extensions);
 
     for(var extension in property_applications) {
       // console.debug('applying extension', extension, property_applications[extension]);
@@ -62,7 +74,7 @@ $().ready(function() {
         var application = property_applications[extension][i];
 
         $(application.selector).each(function() {
-          property_extensions[extension].apply({ element: this, args: application.args });
+          property_extensions[extension].apply({ property: extension, element: this, args: application.args });
         });
 
         // $(application.selector).css({ border: application.args[0] + ' solid ' + application.args[1] });
@@ -70,7 +82,6 @@ $().ready(function() {
     }
   });
 });
-
 
 (function($) {
   $.fn.specl = function(callback, parse_attributes) {
@@ -180,3 +191,20 @@ $().ready(function() {
     return str;
   }
 })(jQuery);
+
+(function() {
+  var Specl = function() {};
+
+  Specl.filter = function() {
+    return eval(Specl.filters[this.filter]).call({ element: this.element });
+  };
+
+  Specl.property = function() {
+    eval(Specl.properties[this.property]).call({ element: this.element, args: this.args });
+  };
+
+  Specl.filters    = {};
+  Specl.properties = {};
+
+  window.Specl = Specl;
+})();
