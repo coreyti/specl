@@ -1,0 +1,33 @@
+
+specify {
+  -spec-filter   : 'innermost'        $(this.element).find('*').size() === 0;
+  -spec-property : '-local-important' $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });
+  -spec-property : '-local-iconic'    $(this.element).css({ background: "url(" + this.args[0] + "/" + countries[$(this.element).text()].toLowerCase() + ".png) no-repeat" }); 
+
+}
+
+div {
+  color             : #666;
+  margin            : 2px;
+}
+
+div:innermost {
+  color             : red;
+/*  -local-important  : 2px orange;*/
+}
+
+ul > li {
+  padding-left      : 20px;
+}
+
+ul.lame > li.flag_01 {
+  background        : url(/images/icons/flags/al.png) no-repeat;
+}
+
+ul.lame > li.flag_02 {
+  background        : url(/images/icons/flags/ad.png) no-repeat;
+}
+
+ul.sweet > li {
+  -local-iconic     : /images/icons/flags;
+}
