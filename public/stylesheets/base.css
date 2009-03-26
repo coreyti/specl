@@ -1,8 +1,8 @@
 
 specify {
-  -spec-filter   : 'innermost'        $(this.element).find('*').size() === 0;
-  -spec-property : '-local-important' $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });
-  -spec-property : '-local-iconic'    $(this.element).css({ background: "url(" + this.args[0] + "/" + countries[$(this.element).text()].toLowerCase() + ".png) no-repeat" }); 
+  -spec-filter    : 'innermost'        $(this.element).find('*').size() === 0;
+  -spec-property1 : '-local-important' $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });
+  -spec-property2 : '-local-iconic'    $(this.element).css({ background: "url(" + this.args[0] + "/" + countries[$(this.element).text()].toLowerCase() + ".png) no-repeat" }); 
 
 }
 
@@ -13,7 +13,7 @@ div {
 
 div:innermost {
   color             : red;
-/*  -local-important  : 2px orange;*/
+  -local-important  : 2px orange;
 }
 
 ul > li {

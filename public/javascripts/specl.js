@@ -10,6 +10,7 @@ $().ready(function() {
 
       if(selector == 'specify') {
         for(var property in css[selector]) {
+          console.debug(property);
           if(property == '-spec-filter') {
             var config = css[selector][property];
             var parsed = /^['"]([^'"]+)['"][\s]+(.*)/.exec(config);
@@ -18,11 +19,14 @@ $().ready(function() {
 
             $.expr[':'][select] = function(context) { return Function(handle).call({ element: context }); };
           }
-          else if(property == '-spec-property') {
+          // else if(property == '-spec-property') {
+          else if(/^-spec-property/.test(property)) {
             var config = css[selector][property];
             var parsed = /^['"]([^'"]+)['"][\s]+(.*)/.exec(config);
             var prop   = parsed[1];
             var lala   = parsed[2];
+            
+            console.debug('adding', lala);
 
             property_extensions[prop] = Function(lala);
           }
@@ -47,6 +51,9 @@ $().ready(function() {
         $(selector).css(css[selector]);
       }
     }
+
+    console.debug('applications', property_applications);
+    console.debug('extensions  ', property_extensions);
 
     for(var extension in property_applications) {
       // console.debug('applying extension', extension, property_applications[extension]);
