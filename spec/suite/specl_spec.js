@@ -17,7 +17,9 @@ Screw.Unit(function() {
     
     after(function() {
       $.get = $.orig_get;
+      
       delete($.expr[':']['fresnel']);
+      delete(Specl.property_extensions['-local-fraunhofer']);
       
       $('link#test_external').remove();
     });
@@ -50,7 +52,10 @@ Screw.Unit(function() {
         });
 
         it("defines the properties", function() {
-
+          expect(typeof Specl.property_extensions['-local-fraunhofer']).to(equal, 'undefined');
+          
+          Specl.transform(selector);
+          expect(typeof Specl.property_extensions['-local-fraunhofer']).to(equal, 'function');
         });
       });
     });
