@@ -7,11 +7,14 @@ Screw.Unit(function() {
 
       head = $('div#test_css');
       body = $('div#test_dom');
-      body.html("");
+
+      head.css({ position: 'absolute', top: '-10000px' });
+      body.css({ position: 'absolute', top: '-10000px' });
+      // body.html("");
 
       $.orig_get = $.get;
       $.get = function(url, callback) {
-        callback(head.find('style').text());
+        callback(head.text());
       }
     });
     
@@ -37,25 +40,47 @@ Screw.Unit(function() {
           head.append('<link id="test_external" rel="stylesheet" type="text/css" href="public/stylesheets/application.css" />');
         });
 
-        it("removes the original element", function() {
-          expect(head.find(selector).length).to(equal, 1);
+        describe("the original element", function() {
+          it("is removed", function() {
+            expect(head.find(selector).length).to(equal, 1);
 
-          Specl.transform(selector);
-          expect(head.find(selector).length).to(equal, 0);
+            Specl.transform(selector);
+            expect(head.find(selector).length).to(equal, 0);
+          });
         });
 
-        it("defines the filters", function() {
-          expect(typeof $.expr[':']['fresnel']).to(equal, 'undefined');
+        describe("a filter definition", function() {
+          it("is created", function() {
+            expect(typeof $.expr[':']['fresnel']).to(equal, 'undefined');
+
+            Specl.transform(selector);
+            expect(typeof $.expr[':']['fresnel']).to(equal, 'function');
+          });
           
-          Specl.transform(selector);
-          expect(typeof $.expr[':']['fresnel']).to(equal, 'function');
+          it("works", function() {
+            expect(body.find('div:inline')).to(be_empty, 'length');
+
+            Specl.transform(selector);
+            expect(body.find('div:inline')).to_not(be_empty, 'length');
+          });
         });
 
-        it("defines the properties", function() {
-          expect(typeof Specl.property_extensions['-local-fraunhofer']).to(equal, 'undefined');
-          
-          Specl.transform(selector);
-          expect(typeof Specl.property_extensions['-local-fraunhofer']).to(equal, 'function');
+        describe("a property definition", function() {
+          it("is created", function() {
+            expect(typeof Specl.property_extensions['-local-fraunhofer']).to(equal, 'undefined');
+
+            Specl.transform(selector);
+            expect(typeof Specl.property_extensions['-local-fraunhofer']).to(equal, 'function');
+          });
+        });
+        
+        describe("standard css", function() {
+          it("still applies", function() {
+            expect(body.find('div#content').css('color')).to_not(equal, $('body').css('color'));
+
+            Specl.transform(selector);
+            expect(body.find('div#content').css('color')).to(equal, 'red');
+          });
         });
       });
     });

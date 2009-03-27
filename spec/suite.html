@@ -22,13 +22,18 @@
     <div class="screw_unit_content"></div>
     
     <div id="test_css">
-      <style type="text/css">
-        specify {
-          -spec-filter   : 'fresnel'           Specl.filter;
-          -spec-property : '-local-fraunhofer' Specl.property;
-        }
-      </style>
+      specify {
+        -spec-filter   : 'fresnel'           Specl.filter;
+        -spec-property : '-local-fraunhofer' Specl.property;
+      }
+      
+      div#content {
+        color: red;
+      }
     </div>
-    <div id="test_dom"></div>
+
+    <div id="test_dom">
+      <div id="content">content</div>
+    </div>
   </body>
 </html>
