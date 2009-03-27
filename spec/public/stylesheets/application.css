@@ -1,26 +1,11 @@
-/* TODO...
-
-@specify {
-  @filter('innermost') {
-    $(this.element).find('*').size() === 0;
-  }
-
-  @property('-local-important') {
-    $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });
-  }
-
-  @property('-local-iconic', Specl.handler);
-}
-
-*/
-
 specify {
-/*  -spec-filter    : 'innermost'        $(this.element).find('*').size() === 0;*/
-  -spec-filter    : 'innermost'        Specl.filter;
-
-/*  -spec-property : '-local-important' $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });*/
+  -spec-filter    : 'innermost'       Specl.filter;
   -spec-property : '-local-important' Specl.property;
   -spec-property : '-local-iconic'    Specl.property;
+}
+
+body {
+  font              : 75% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }
 
 div {
@@ -36,18 +21,24 @@ div:innermost {
   -local-important  : 2px orange;
 }
 
+ul {
+  list-style        : none;
+  margin            : 0;
+  padding           : 0;
+}
+
 ul > li {
   padding-left      : 20px;
 }
 
 ul.lame > li.flag_01 {
-  background        : url(/images/icons/flags/al.png) no-repeat;
+  background        : url(/spec/public/images/icons/flags/al.png) no-repeat;
 }
 
 ul.lame > li.flag_02 {
-  background        : url(/images/icons/flags/ad.png) no-repeat;
+  background        : url(/spec/public/images/icons/flags/ad.png) no-repeat;
 }
 
 ul.sweet > li {
-  -local-iconic     : /images/icons/flags;
+  -local-iconic     : /spec/public/images/icons/flags;
 }
