@@ -3,6 +3,17 @@ Screw.Unit(function() {
     var head, body;
 
     before(function() {
+      $.get = function(url, callback) {
+        var stylesheet = "" +
+          "specify {                                            \n" +
+            "-spec-filter   : 'fresnel'          Near.field;    \n" +
+            "-spec-filter   : 'innermost'        Specl.filter;  \n" +
+            "-spec-property : '-local-important' Specl.property;\n" +
+            "-spec-property : '-local-iconic'    Specl.property;\n" +
+          "}                                                    \n";
+
+        callback(stylesheet);
+      }
       // specl = new Specl();
       head = $('head');
       body = $('#test_content');
@@ -30,12 +41,12 @@ Screw.Unit(function() {
           expect(body.find(selector).length).to(equal, 0);
         });
 
-        // it("defines the filters", function() {
-        //   expect(Specl.filters['with-salt']).to(equal, undefined);
-        //   
-        //   Specl.transform(selector);
-        //   expect(Specl.filters['with-salt']).to(equal, 'foo');
-        // });
+        it("defines the filters", function() {
+          expect(Specl.filter_map['fresnel']).to(equal, undefined);
+          
+          Specl.transform(selector);
+          expect(typeof $.expr[':']['fresnel']).to(equal, 'function');
+        });
 
         it("defines the properties", function() {
 
@@ -49,14 +60,8 @@ Screw.Unit(function() {
           var selector = 'link[type=text/css]';
 
           Specl.load(selector, function(element, css) {
-            // NOTE:
-            //   this doesn't *really* work... the underlying AJAX
-            //   is asynchronous, so any failure comes after the suite
-            //   has finished.  It does show up as a JS error, but it
-            //   would be better to fake the AJAX call.
-            
-            // puts(css);
             expect(element.href).to(match, 'application.css');
+            expect(css.specify['-spec-filter'][0]).to(equal, "'fresnel' Near.field");
           });
         });
       });

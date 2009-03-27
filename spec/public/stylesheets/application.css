@@ -1,5 +1,3 @@
-/* spec css */
-
 /* TODO...
 
 @specify {
@@ -17,18 +15,19 @@
 */
 
 specify {
-  -spec-filter : 'fresnel' foo;
-  
 /*  -spec-filter    : 'innermost'        $(this.element).find('*').size() === 0;*/
-/*  -spec-filter    : 'innermost'        Specl.filter;*/
+  -spec-filter    : 'innermost'        Specl.filter;
 
-/*  -spec-property1 : '-local-important' $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });*/
-  -spec-property1 : '-local-important' Specl.property;
-  -spec-property2 : '-local-iconic'    Specl.property;
+/*  -spec-property : '-local-important' $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] });*/
+  -spec-property : '-local-important' Specl.property;
+  -spec-property : '-local-iconic'    Specl.property;
 }
 
 div {
   color             : #666;
+}
+
+div {
   margin            : 2px;
 }
 
