@@ -1,0 +1,3 @@
+div.outer > div.inner {
+  color: red;
+}
