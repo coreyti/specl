@@ -1,7 +1,7 @@
 specify {
-  -spec-filter    : 'innermost'       Specl.filter;
-  -spec-property : '-local-important' Specl.property;
-  -spec-property : '-local-iconic'    Specl.property;
+  -spec-filter      : 'innermost'        Specl.filter;
+  -spec-property    : '-local-important' Specl.property;
+  -spec-property    : '-local-iconic'    Specl.property;
 }
 
 body {
@@ -23,7 +23,7 @@ div:innermost {
 
 ul {
   list-style        : none;
-  margin            : 0;
+  margin            : 10px 0;
   padding           : 0;
 }
 
@@ -32,13 +32,13 @@ ul > li {
 }
 
 ul.lame > li.flag_01 {
-  background        : url(/spec/public/images/icons/flags/al.png) no-repeat;
+  background        : url(../example/images/icons/flags/al.png) no-repeat;
 }
 
 ul.lame > li.flag_02 {
-  background        : url(/spec/public/images/icons/flags/ad.png) no-repeat;
+  background        : url(../example/images/icons/flags/ad.png) no-repeat;
 }
 
 ul.sweet > li {
-  -local-iconic     : /spec/public/images/icons/flags;
+  -local-iconic     : ../example/images/icons/flags;
 }

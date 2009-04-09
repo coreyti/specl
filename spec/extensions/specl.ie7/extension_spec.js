@@ -13,7 +13,7 @@ Screw.Unit(function() {
         body.attr('class', '');
       });
       
-      it("does something", function() {
+      it("does something", pending, function() {
         // body.attr('class', '>');
         
         expect(main.find('div.inner').html()).to(equal, 'content');

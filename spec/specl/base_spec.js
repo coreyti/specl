@@ -10,7 +10,6 @@ Screw.Unit(function() {
 
       head.css({ position: 'absolute', top: '-10000px' });
       body.css({ position: 'absolute', top: '-10000px' });
-      // body.html("");
 
       $.orig_get = $.get;
       $.get = function(url, callback) {
@@ -26,6 +25,8 @@ Screw.Unit(function() {
       
       $('link#test_external').remove();
     });
+    
+    it("determine a better way to provide the test styles, without `div#test_css`", pending);
 
     describe(".transform", function() {
       it("exists", function() {
@@ -37,9 +38,9 @@ Screw.Unit(function() {
 
         before(function() {
           selector = 'link[type=text/css]';
-          head.append('<link id="test_external" rel="stylesheet" type="text/css" href="public/stylesheets/application.css" />');
+          head.append('<link id="test_external" rel="stylesheet" type="text/css" />');
         });
-
+        
         describe("the original element", function() {
           it("is removed", function() {
             expect(head.find(selector).length).to(equal, 1);
@@ -57,7 +58,7 @@ Screw.Unit(function() {
             expect(typeof $.expr[':']['fresnel']).to(equal, 'function');
           });
           
-          it("works", function() {
+          it("works", pending, function() {
             expect(body.find('div:inline')).to(be_empty, 'length');
 
             Specl.transform(selector);
