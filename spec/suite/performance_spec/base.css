@@ -1,3 +1,10 @@
-div.outer > div.inner {
-  color: red;
-}
+
+body[class=">"] {}
+
+/*  body.child_selector div.outer div.inner {*/
+/*    color: red;*/
+/*  }*/
+
+  div.outer > div.inner {
+    color: green;
+  }
