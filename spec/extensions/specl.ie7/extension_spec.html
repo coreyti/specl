@@ -12,15 +12,24 @@
     <script src="../../../vendor/screw-unit/lib/screw.events.js"></script>
     <script src="../../../vendor/screw-unit/lib/screw.behaviors.js"></script>
 
-    <script src="../../../lib/specl.js"></script>
+    <link rel="stylesheet" href="../../../spec/extensions/specl.ie7/extension_spec.css">
 
+    <script src="../../../lib/specl.js"></script>
+    <!--
+    <script src="../../../lib/vendor/ie7.js"></script>
+    <script src="../../../lib/vendor/ie7-recalc.js"></script>
+    -->
+    
     <script src="../../../spec/spec_helper.js"></script>
-    <script src="../../../spec/extensions/specl.ie7/extension_spec.js"></script>
+    <script src='../../../spec/extensions/specl.ie7/reference_spec.js'></script>
+    <!--
+    <script src='../../../spec/extensions/specl.ie7/extension_spec.js'></script>
+    -->
   </head>
   <body>
     <div class="screw_unit_content"></div>
     
-    <div id="test_dom">
+    <div id="content">
       <div class="outer">
         <div class="inner">content</div>
       </div>

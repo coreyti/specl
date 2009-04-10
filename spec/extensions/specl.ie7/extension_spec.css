@@ -1,10 +1,9 @@
 
-body[class=">"] {}
+body[mode='[attr]'] div#content div.inner {
+/*  background  : url("specl.ie7-tick.png?000");*/
+  color       : green;
+}
 
-/*  body.child_selector div.outer div.inner {*/
-/*    color: red;*/
-/*  }*/
-
-  div.outer > div.inner {
-    color: green;
-  }
+body[mode='>']    div#content div.outer > div.inner {
+  color       : blue;
+}

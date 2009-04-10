@@ -6,7 +6,7 @@ Screw.Unit(function() {
       // specl = new Specl();
 
       head = $('div#test_css');
-      body = $('div#test_dom');
+      body = $('div#content');
 
       head.css({ position: 'absolute', top: '-10000px' });
       body.css({ position: 'absolute', top: '-10000px' });
