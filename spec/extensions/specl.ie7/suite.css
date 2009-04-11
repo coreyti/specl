@@ -6,7 +6,7 @@ specify {
 /* bootstrapping (this is not IE7 stuff and will be removed)                  */
 /* -------------------------------------------------------------------------- */
 
-  body[spec='bootstrapping'] div#test_content div.inner {
+  body[spec='bootstrapping']  ul#target {
     color         : blue;
   }
 
@@ -14,7 +14,7 @@ specify {
 /* element[attr]                                                              */
 /* -------------------------------------------------------------------------- */
 
-  body[spec='element[attr]'] div[attr] div.inner {
+  body[spec='element[attr]']  ul#target[attr] li {
     color         : green;
   }
 
@@ -22,7 +22,7 @@ specify {
 /* element > child                                                            */
 /* -------------------------------------------------------------------------- */
 
-  body[spec='>'] div > div.inner {
+  body[spec='>']              ul#target > li {
     color         : blue;
   }
 

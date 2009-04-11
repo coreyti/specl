@@ -9,6 +9,11 @@ body {
 td#screw_unit_controls {
   width         : 30%;
 }
+
+div#test_content {
+  display       : none;
+}
+
 ul.descriptions,
 ul.child_descriptions {
   background    : #FFF;
