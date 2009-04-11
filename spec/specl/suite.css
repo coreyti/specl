@@ -3,10 +3,10 @@ specify {
   -spec-property  : '-local-fraunhofer' Specl.property;
 }
 
-div#test_content.style_01 > div.inner {
+div#test_content.style_01 div.inner {
   color           : green;
 }
 
-div#test_content.style_02 > div.inner {
+div#test_content.style_02 div.inner {
   color           : blue;
 }
