@@ -1,8 +1,12 @@
 specify {
-  -spec-filter   : 'fresnel'           Specl.filter;
-  -spec-property : '-local-fraunhofer' Specl.property;
+  -spec-filter    : 'fresnel'           Specl.filter;
+  -spec-property  : '-local-fraunhofer' Specl.property;
 }
 
-div#test_content {
-  color: red;
+div#test_content.style_01 > div.inner {
+  color           : green;
+}
+
+div#test_content.style_02 > div.inner {
+  color           : blue;
 }
