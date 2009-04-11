@@ -1,9 +1,0 @@
-
-body[mode='[attr]'] div#content div.inner {
-/*  background  : url("specl.ie7-tick.png?000");*/
-  color       : green;
-}
-
-body[mode='>']    div#content div.outer > div.inner {
-  color       : blue;
-}

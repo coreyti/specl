@@ -10,6 +10,10 @@ load_stylesheet = function(uri, condition) {
   }
 };
 
+unload_content = function() {
+  $('div#test_content > *').remove();
+}
+
 unload_javascripts = function() {
   $('head').find('script.test_script').remove();
 };
