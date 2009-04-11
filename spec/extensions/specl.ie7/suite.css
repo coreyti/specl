@@ -1,6 +1,6 @@
 /* TODO: move the specification into the extension lib */
 specify {
-  -spec-filter    : 'innermost' Specl.filter;
+  -spec-filter    : 'first-child' Specl.filter;
 }
 
 /* bootstrapping (this is not IE7 stuff and will be removed)                  */
