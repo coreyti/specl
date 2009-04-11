@@ -9,8 +9,8 @@ Screw.Unit(function(c) { with(c) {
   
   after(function() {
     unload_javascripts();
-    unload_stylesheets();
-    unload_content();
+    // unload_stylesheets();
+    // unload_content();
 
     body.removeAttr('spec');
     main.removeAttr('attr');

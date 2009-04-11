@@ -11,7 +11,7 @@ Screw.Unit(function(c) { with(c) {
       main = $('div#test_content');
 
       selector = 'link#test_external';
-      head.append('<link id="test_external" rel="stylesheet" type="text/css" href="specl/base_spec.css" />');
+      head.append('<link id="test_external" rel="stylesheet" type="text/css" href="suite.css" />');
     });
 
     after(function() {
@@ -105,7 +105,7 @@ Screw.Unit(function(c) { with(c) {
       describe("given 'selector' and 'callback' arguments", function() {
         it("executes the callback, passing the CSS contents loaded from the selector-matching element", function() {
           Specl.load(selector, function(element, css) {
-            expect(element.href).to(match, 'base_spec.css');
+            expect(element.href).to(match, 'suite.css');
             expect(css.specify['-spec-filter'][0]).to(equal, "'fresnel' Specl.filter");
           });
         });

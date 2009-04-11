@@ -28,13 +28,13 @@ Screw.Unit(function(c) { with(c) {
       load_javascript('../../../lib/specl.js');
       load_javascript('../../../lib/extensions/specl.ie7.js');
 
-      // Specl.TEST_MODE = true;
+      Specl.TEST_MODE = true;
     });
 
     describe("bootstrapping (not IE7 stuff)", function() {
       before(function() {
         body.attr('spec', 'bootstrapping');
-        // Specl.transform('link#test_stylesheet');
+        Specl.transform('link#test_stylesheet');
       });
     
       it("applies styles", function() {
@@ -49,7 +49,7 @@ Screw.Unit(function(c) { with(c) {
       before(function() {
         body.attr('spec', 'element[attr]');
         main.attr('attr', '');
-        // Specl.transform('link#test_stylesheet');
+        Specl.transform('link#test_stylesheet');
       });
     
       it("applies styles", function() {
