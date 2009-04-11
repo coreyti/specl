@@ -26,7 +26,8 @@ Screw.Unit(function(c) { with(c) {
 
   describe("specl.ie7 reference (ie7-js)", function() {
     before(function() {
-      main.html('<div class="inner">some content</div>');
+      var view = Disco.build(Disco.Namespace("Specl::IE7").View, {});
+      main.html(view);
     });
     
     describe("element[attr]", function() {
