@@ -1,1 +1,8 @@
-/* TODO */
+specify {
+  -spec-filter   : 'fresnel'           Specl.filter;
+  -spec-property : '-local-fraunhofer' Specl.property;
+}
+
+div#test_content {
+  color: red;
+}
