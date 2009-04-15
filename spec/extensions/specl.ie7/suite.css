@@ -18,6 +18,206 @@ specify {
     color         : green;
   }
 
+  body[spec='element[attr]']  ul#target[attr] li.item_1 {
+    background    : url('../../../example/images/icons/flags/ad.png?01') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_2 {
+    background    : url('../../../example/images/icons/flags/ad.png?02') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_3 {
+    background    : url('../../../example/images/icons/flags/ad.png?01') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_4 {
+    background    : url('../../../example/images/icons/flags/ad.png?02') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_5 {
+    background    : url('../../../example/images/icons/flags/ad.png?02') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_6 {
+    background    : url('../../../example/images/icons/flags/ad.png?01') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_7 {
+    background    : url('../../../example/images/icons/flags/ad.png?02') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_8 {
+    background    : url('../../../example/images/icons/flags/ad.png?02') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_9 {
+    background    : url('../../../example/images/icons/flags/ad.png?01') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_10 {
+    background    : url('../../../example/images/icons/flags/ad.png?02') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_11 {
+    background    : url('../../../example/images/icons/flags/ad.png?11') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_12 {
+    background    : url('../../../example/images/icons/flags/ad.png?12') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_13 {
+    background    : url('../../../example/images/icons/flags/ad.png?13') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_14 {
+    background    : url('../../../example/images/icons/flags/ad.png?14') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_15 {
+    background    : url('../../../example/images/icons/flags/ad.png?15') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_16 {
+    background    : url('../../../example/images/icons/flags/ad.png?16') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_17 {
+    background    : url('../../../example/images/icons/flags/ad.png?17') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_18 {
+    background    : url('../../../example/images/icons/flags/ad.png?18') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_19 {
+    background    : url('../../../example/images/icons/flags/ad.png?19') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_20 {
+    background    : url('../../../example/images/icons/flags/ad.png?20') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_21 {
+    background    : url('../../../example/images/icons/flags/ad.png?21') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_22 {
+    background    : url('../../../example/images/icons/flags/ad.png?22') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_23 {
+    background    : url('../../../example/images/icons/flags/ad.png?23') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_24 {
+    background    : url('../../../example/images/icons/flags/ad.png?24') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_25 {
+    background    : url('../../../example/images/icons/flags/ad.png?25') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_26 {
+    background    : url('../../../example/images/icons/flags/ad.png?26') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_27 {
+    background    : url('../../../example/images/icons/flags/ad.png?27') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_28 {
+    background    : url('../../../example/images/icons/flags/ad.png?28') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_29 {
+    background    : url('../../../example/images/icons/flags/ad.png?29') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_30 {
+    background    : url('../../../example/images/icons/flags/ad.png?30') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_31 {
+    background    : url('../../../example/images/icons/flags/ad.png?31') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_32 {
+    background    : url('../../../example/images/icons/flags/ad.png?32') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_33 {
+    background    : url('../../../example/images/icons/flags/ad.png?33') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_34 {
+    background    : url('../../../example/images/icons/flags/ad.png?34') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_35 {
+    background    : url('../../../example/images/icons/flags/ad.png?35') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_36 {
+    background    : url('../../../example/images/icons/flags/ad.png?36') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_37 {
+    background    : url('../../../example/images/icons/flags/ad.png?37') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_38 {
+    background    : url('../../../example/images/icons/flags/ad.png?38') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_39 {
+    background    : url('../../../example/images/icons/flags/ad.png?39') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_40 {
+    background    : url('../../../example/images/icons/flags/ad.png?40') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_41 {
+    background    : url('../../../example/images/icons/flags/ad.png?41') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_42 {
+    background    : url('../../../example/images/icons/flags/ad.png?42') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_43 {
+    background    : url('../../../example/images/icons/flags/ad.png?43') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_44 {
+    background    : url('../../../example/images/icons/flags/ad.png?44') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_45 {
+    background    : url('../../../example/images/icons/flags/ad.png?45') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_46 {
+    background    : url('../../../example/images/icons/flags/ad.png?46') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_47 {
+    background    : url('../../../example/images/icons/flags/ad.png?47') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_48 {
+    background    : url('../../../example/images/icons/flags/ad.png?48') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_49 {
+    background    : url('../../../example/images/icons/flags/ad.png?49') no-repeat;
+  }
+
+  body[spec='element[attr]']  ul#target[attr] li.item_50 {
+    background    : url('../../../example/images/icons/flags/ad.png?50') no-repeat;
+  }
+
 
 /* element > child                                                            */
 /* -------------------------------------------------------------------------- */

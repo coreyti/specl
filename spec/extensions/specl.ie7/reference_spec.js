@@ -10,15 +10,30 @@ Screw.Unit(function(c) { with(c) {
       if( ! $.browser.msie) {
         document.recalc = function() {};
       }
-
+      
       head = $('head');
       body = $('body');
       main = $('div#test_content');
-      main.html(Disco.build(Disco.Namespace("Specl::IE7").View, { items: 50 }));
+      main.css({ 'font-size': '0px' });
+
+      var template   = Disco.build(Disco.Namespace("Specl::IE7").Template);
+      var stylesheet = Disco.build(Disco.Namespace("Specl::IE7").Stylesheet);
+      
+      var count = 50;
+      while((count --) > 0) {
+        template.markup('<li class="item_' + count + '">item ' + count + '</li>');
+
+        stylesheet.define("ul#target[attr] li.item_" + count, {
+          color      : 'green',
+          background : 'url("../../../example/images/icons/flags/ad.png?' + count + '") no-repeat'
+        });
+      }
+
+      head.append(stylesheet);
+      main.append(template);
 
       list  = main.find('ul#target');
       items = list.find('li');
-      expect(items.length).to(equal, 50);
     });
     
     after(function() {
@@ -26,13 +41,13 @@ Screw.Unit(function(c) { with(c) {
       // unload_stylesheets();
       // unload_content();
 
-      body.removeAttr('spec');
-      main.removeAttr('attr');
+      // body.removeAttr('spec');
+      // list.removeAttr('attr');
     });
 
     describe("element[attr]", function() {
       before(function() {
-        body.attr('spec', 'element[attr]');
+        // body.attr('spec', 'element[attr]');
         list.attr('attr', '');
         document.recalc();
       });
@@ -42,15 +57,15 @@ Screw.Unit(function(c) { with(c) {
       });
     });
 
-    describe(">", function() {
-      before(function() {
-        body.attr('spec', '>');
-        document.recalc();
-      });
-    
-      it("applies styles", function() {
-        expect(items.css('color')).to(match, /(rgb\(0, 0, 255\)|blue)/);
-      });
-    });
+    // describe(">", function() {
+    //   before(function() {
+    //     body.attr('spec', '>');
+    //     document.recalc();
+    //   });
+    // 
+    //   it("applies styles", function() {
+    //     expect(items.css('color')).to(match, /(rgb\(0, 0, 255\)|blue)/);
+    //   });
+    // });
   });
 }});

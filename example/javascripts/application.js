@@ -10,7 +10,7 @@
       });
     });
     
-    property('-local-important', function(){
+    property('-local-important', function() {
       $(this.element).css({ border: this.args[0] + ' solid ' + this.args[1] })
     });
   }

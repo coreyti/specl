@@ -1,5 +1,5 @@
 Disco.Namespace("Specl::IE7", {
-  View: {
+  Template: {
     content: function(builder, initial_attributes) {
       with(builder) {
         ul({ 'id': 'target' });
@@ -7,14 +7,28 @@ Disco.Namespace("Specl::IE7", {
     },
 
     methods: {
-      after_initialize: function() {
-        this.add_items(this.items);
-      },
-      
-      add_items: function(count) {
-        while((count --) > 0) {
-          this.append('<li>item</li>');
-        }
+      markup: function(html) {
+        this.prepend(html);
+      }
+    }
+  },
+  
+  Stylesheet: {
+    content: function(builder) {
+      with(builder) {
+        style({ type: 'text/css' });
+      }
+    },
+    
+    methods: {
+      define: function(selector, definition) {
+        var content = selector + "{\n";
+        $.each(definition, function(property, value) {
+          content += property + ": " + value + ";\n";
+        });
+        content += "}\n";
+            
+        this.prepend(content);
       }
     }
   }
