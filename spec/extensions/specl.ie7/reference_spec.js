@@ -1,6 +1,6 @@
 Screw.Unit(function(c) { with(c) {
   describe("specl.ie7 reference (ie7-js)", function() {
-    var head, body, main, list, items;
+    var head, body, main, template, stylesheet;
 
     before(function() {
       var load_ie7 = (typeof IE7 == 'undefined' && $.browser.msie);
@@ -10,62 +10,77 @@ Screw.Unit(function(c) { with(c) {
       if( ! $.browser.msie) {
         document.recalc = function() {};
       }
-      
+
       head = $('head');
       body = $('body');
       main = $('div#test_content');
-      main.css({ 'font-size': '0px' });
+      main.css({ 'font-size': '8px' });
 
-      var template   = Disco.build(Disco.Namespace("Specl::IE7").Template);
-      var stylesheet = Disco.build(Disco.Namespace("Specl::IE7").Stylesheet);
-      
-      var count = 50;
-      while((count --) > 0) {
-        template.markup('<li class="item_' + count + '">item ' + count + '</li>');
-
-        stylesheet.define("ul#target[attr] li.item_" + count, {
-          color      : 'green',
-          background : 'url("../../../example/images/icons/flags/ad.png?' + count + '") no-repeat'
-        });
-      }
+      template   = Disco.build(Disco.Namespace("Specl::IE7").Template);
+      stylesheet = Disco.build(Disco.Namespace("Specl::IE7").Stylesheet);
 
       head.append(stylesheet);
       main.append(template);
-
-      list  = main.find('ul#target');
-      items = list.find('li');
     });
-    
-    after(function() {
-      // unload_javascripts();
-      // unload_stylesheets();
-      // unload_content();
 
-      // body.removeAttr('spec');
-      // list.removeAttr('attr');
+    after(function() {
+      template.reset();
+      stylesheet.reset();
     });
 
     describe("element[attr]", function() {
+      var count;
+      
       before(function() {
-        // body.attr('spec', 'element[attr]');
-        list.attr('attr', '');
+        count = 50;
+
+        var index = 0;
+        while((index ++) < count) {
+          template.markup('<p class="item_' + index + '">item ' + index + '</p>');
+
+          stylesheet.define('div#template[attr] p.item_' + index, {
+            color      : 'green',
+            background : 'url("/timing.png?selector=element[attr]&count=' + index + '") no-repeat'
+          });
+        }
+
+        template.attr('attr', '');
         document.recalc();
       });
-    
+
       it("applies styles", function() {
+        var items = template.find('p');
+
+        expect(items.length).to(equal, count);
         expect(items.css('color')).to(match, /(rgb\(0, 128, 0\)|green)/);
       });
     });
 
-    // describe(">", function() {
-    //   before(function() {
-    //     body.attr('spec', '>');
-    //     document.recalc();
-    //   });
-    // 
-    //   it("applies styles", function() {
-    //     expect(items.css('color')).to(match, /(rgb\(0, 0, 255\)|blue)/);
-    //   });
-    // });
+    describe(">", function() {
+      var count;
+
+      before(function() {
+        count = 50;
+        
+        var index = 0;
+        while((index ++) < count) {
+          template.markup('<p class="item_' + index + '">item ' + index + '</p>');
+
+          stylesheet.define('div#template > p.item_' + index, {
+            color      : 'blue',
+            background : 'url("/timing.png?selector=>&count=' + index + '") no-repeat'
+          });
+        }
+
+        document.recalc();
+      });
+
+      it("applies styles", function() {
+        var items = template.find('p');
+
+        expect(items.length).to(equal, count);
+        expect(items.css('color')).to(match, /(rgb\(0, 0, 255\)|blue)/);
+      });
+    });
   });
 }});
