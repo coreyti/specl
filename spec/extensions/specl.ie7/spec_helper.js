@@ -25,6 +25,38 @@ Disco.Namespace("Specl::IE7", {
     },
 
     methods: {
+      after_initialize: function() {
+        this.definitions = [];
+      },
+
+      render: function() {
+        // NOTE:
+        // 
+        // MSIE won't allow inserting content into an element located
+        // in the <head />, so we have to implement this render method
+        // and call it in order to create a dummy element, which holds
+        // the child <style /> definition that we subsequently inject
+        // into the document head.
+        // 
+        // sucks!
+
+        var css = "";
+        $.each(this.definitions, function() {
+          css += this;
+        });
+
+        if($.browser.msie) {
+          $('#stylesheet').remove();
+
+          var dummy = document.createElement('div');
+              dummy.innerHTML += '<p>throw away</p><style id="stylesheet">' + css + '</style>';
+          document.getElementsByTagName('head')[0].appendChild(dummy.childNodes[1]);
+        }
+        else {
+          this.append(css);
+        }
+      },
+
       define: function(selector, definition) {
         var content = selector + "{\n";
         $.each(definition, function(property, value) {
@@ -32,11 +64,11 @@ Disco.Namespace("Specl::IE7", {
         });
         content += "}\n";
 
-        this.prepend(content);
+        this.definitions.push(content);
       },
 
       reset: function() {
-        this.remove();
+        $('#stylesheet').remove();
       }
     }
   }
