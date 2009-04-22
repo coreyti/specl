@@ -4,6 +4,7 @@ Screw.Unit(function(c) { with(c) {
 
     before(function() {
       item_count = 3;
+
       head = $('head');
       body = $('body');
       main = $('div#test_content');
@@ -26,7 +27,7 @@ Screw.Unit(function(c) { with(c) {
           color      : 'red'
         });
         
-        stylesheet.define('body.attr_exists div#template[attr] p.item_' + (index - 1) + ' + p', {
+        stylesheet.define('body.attr_exists div#template[attr] p.item_' + index, {
           color      : 'green'
         });
 
